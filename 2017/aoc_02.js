@@ -6,10 +6,10 @@ var input = fs.readFileSync(input_file, 'utf8');
 
 var data =
     input
-        .split("\r\n") // Make an array with each line as an array.
-        .map(row => row.replace(/\t/g, ",")) // Replace tabs with commas.
-        .map(row => row.split(",")) // Make each nested line an array of characters.
-        .map(row => row.map(string => parseInt(string))) // Convert those characters into numbers.
+        .split("\r\n")                                       // Make an array with each line as an array.
+        .map(row => row.replace(/\t/g, ","))                 // Replace tabs with commas.
+        .map(row => row.split(","))                          // Make each nested line an array of characters.
+        .map(row => row.map(string => parseInt(string)))     // Convert those characters into numbers.
 
 var sum1 =
     data
