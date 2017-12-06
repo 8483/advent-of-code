@@ -1,3 +1,5 @@
+// http://adventofcode.com/2017/day/5
+
 var fs = require("fs");
 var input_file = './aoc_05.txt'
 var input = fs.readFileSync(input_file, 'utf8');
@@ -34,6 +36,10 @@ function escape(part) {
     }
     console.log(count);
 }
+
+// All of this can be replaced with:
+// var i = 0; var s = 0; while (typeof data[i] !== 'undefined') { i += data[i]++; s++ }; return s;
+// var i = 0; var s = 0; while (typeof data[i] !== 'undefined') { i += (list[i] > 2 ? list[i]-- : list[i]++); s++ }; return s;
 
 escape(1);
 escape(2);
