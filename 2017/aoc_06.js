@@ -6,13 +6,13 @@ var input = fs.readFileSync(input_file, 'utf8');
 
 function distribute(input, n) {
     var log = [];
-    var array = input.split("\t").map((item) => Number(item));
-    var count = 0;
+    var array = input.split("\t").map(Number);
+
     // Checks if the array was not encountered before i.e. < 1 occurrence.
     while(log.filter((item) => item == array.toString()).length < n) {
         log.push(array.toString());
         var max = Math.max.apply(null, array);
-        var i = array.iOf(max);;
+        var i = array.indexOf(max);;
 
         array[i] = 0;         // Reduce max to 0;
 
@@ -26,9 +26,8 @@ function distribute(input, n) {
             }
             max--;           // Iterations.
         }
-        count++;             // Register cycle.
     }
-    return count;
+    return log.length;       // Same as using a count++.
 }
 
 var cycles = distribute(input, 1);
