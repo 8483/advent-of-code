@@ -1,7 +1,7 @@
-// 10 min
+// 20 min
 let fs = require("fs");
 
-let inputFile = `aoc20-02.txt`;
+let inputFile = `2.txt`;
 let input = fs.readFileSync(inputFile, "utf8");
 let data = input.split(/\r?\n/);
 
@@ -21,10 +21,17 @@ let passwords = data.map((item) => {
 let valid = [];
 
 passwords.map((obj) => {
-    let isLower = obj.password[obj.lower - 1] === obj.letter;
-    let isUpper = obj.password[obj.upper - 1] === obj.letter;
-    if ((isLower || isUpper) && !(isLower && isUpper)) {
-        // console.log(obj);
+    let password = obj.password;
+    let count = 0;
+    for (let i = 0; i < password.length; i++) {
+        let passwordLetter = password[i];
+        if (passwordLetter === obj.letter) {
+            count++;
+        }
+    }
+
+    if (count >= obj.lower && count <= obj.upper) {
+        // console.log(obj, count);
         valid.push(obj);
     }
 });
