@@ -19,14 +19,13 @@ raw.map((item, i) => {
     }
 });
 
-let questionsWithYesAnswers = 0;
-let questionsWhereEveryoneAnsweredYes = 0;
+let questionsWithYesAnswersCount = 0;
+let questionsWhereEveryoneAnsweredYesCount = 0;
 data.map((group) => {
-    let lettersString = group.join("");
-    let letters = lettersString.split("");
+    let letters = group.join("").split("");
     var uniqueLetters = new Set(letters);
 
-    questionsWithYesAnswers += uniqueLetters.size;
+    questionsWithYesAnswersCount += uniqueLetters.size;
 
     // initialize counts
     let counts = {};
@@ -46,11 +45,11 @@ data.map((group) => {
     // count questions where everyone answered yes
     [...uniqueLetters].map((letter) => {
         if (counts[letter] == group.length) {
-            questionsWhereEveryoneAnsweredYes++;
+            questionsWhereEveryoneAnsweredYesCount++;
         }
     });
 });
 
-console.log("Questions with yes answers:", questionsWithYesAnswers);
-console.log("Questions where everyone answered yes:", questionsWhereEveryoneAnsweredYes);
+console.log("Questions with yes answers:", questionsWithYesAnswersCount);
+console.log("Questions where everyone answered yes:", questionsWhereEveryoneAnsweredYesCount);
 console.log("reading: 10 min, first: 16 min, second: 54 min, total: 80 min");
