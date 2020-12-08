@@ -1,3 +1,4 @@
+// 4 hours
 let fs = require("fs");
 
 let inputFile = `7.txt`;
