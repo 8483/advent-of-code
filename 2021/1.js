@@ -14,12 +14,12 @@ for (let i = 0; i < data.length; i++) {
     let previous = data[i - 1];
     let current = data[i];
 
-    let windowOne = current + data[i + 1] + data[i + 2];
-    let windowTwo = data[i + 1] + data[i + 2] + data[i + 3];
-
     if (current > previous) {
         count++;
     }
+
+    let windowOne = current + data[i + 1] + data[i + 2];
+    let windowTwo = data[i + 1] + data[i + 2] + data[i + 3];
 
     if (windowTwo > windowOne) {
         windowCount++;
