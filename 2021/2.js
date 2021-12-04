@@ -20,7 +20,6 @@ data.forEach((item) => {
         case "forward":
             x += value;
             depth += y * value;
-
             break;
 
         case "down":
