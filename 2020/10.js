@@ -3,11 +3,11 @@ let fs = require("fs");
 
 let inputFile = `10.txt`;
 let input = fs.readFileSync(inputFile, "utf8");
-let raw = input.split(/\r?\n/);
+// let raw = input.split(/\r?\n/);
 
 // let raw = ["16", "10", "15", "5", "1", "11", "7", "19", "6", "12", "4"];
 
-// let raw = ["28", "33", "18", "42", "31", "14", "46", "20", "48", "47", "24", "23", "49", "45", "19", "38", "39", "11", "1", "32", "25", "35", "8", "17", "7", "9", "4", "2", "34", "10", "3"];
+let raw = ["28", "33", "18", "42", "31", "14", "46", "20", "48", "47", "24", "23", "49", "45", "19", "38", "39", "11", "1", "32", "25", "35", "8", "17", "7", "9", "4", "2", "34", "10", "3"];
 
 let adaptersTemp = raw.map((adapter) => parseInt(adapter));
 let adapters = adaptersTemp.sort((a, b) => a - b);
@@ -52,7 +52,7 @@ function joltDifferencesCount(adapters) {
     console.log("part one: ", oneJoltDifferences * threeJoltDifferences); // 1820
 }
 
-joltDifferencesCount(adapters); // one 7, three 5
+// joltDifferencesCount(adapters); // one 7, three 5
 
 function getArrangements(adapters) {
     console.log(adapters);
@@ -74,7 +74,7 @@ function getArrangements(adapters) {
             console.log("ranges", ranges);
             console.log("holes", holes);
             console.log("\n");
-            i += 2;
+            // i += 2;
         } else if (adapters.includes(adapter + 1) && adapters.includes(adapter + 2) && adapters.includes(adapter + 3)) {
             console.log("adapter", adapter);
             ranges.push([adapters[i], adapters[i + 1], adapters[i + 2], adapters[i + 3]]);
@@ -82,10 +82,9 @@ function getArrangements(adapters) {
             console.log("ranges", ranges);
             console.log("holes", holes);
             console.log("\n");
-            i += 3;
-        } else {
-            i++;
+            // i += 3;
         }
+        i++;
     }
 
     // console.log("arrangements", arrangements);

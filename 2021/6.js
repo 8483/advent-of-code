@@ -46,10 +46,12 @@ function getFish(days) {
         }
 
         total = fishCounts.reduce((a, b) => a + b) + bornCounts.reduce((a, b) => a + b);
-        console.log(day + 1, "fishCounts", fishCounts, "counter", counter, "bornCounts", bornCounts, "total", total);
+        // console.log(day + 1, "fishCounts", fishCounts, "counter", counter, "bornCounts", bornCounts, "total", total);
 
         day++;
     }
+
+    console.log(total);
 }
 
 getFish(80);

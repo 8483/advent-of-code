@@ -15,7 +15,7 @@ For example:
 > delivers presents to 2 houses: one at the starting location, and one to the east.
 ^>v< delivers presents to 4 houses in a square, including twice to the house at his starting/ending location.
 ^v^v^v^v^v delivers a bunch of presents to some very lucky children at only 2 houses.
-Your puzzle answer was 2081.`
+Your puzzle answer was 2081.`;
 
 var input = document.body.textContent;
 
@@ -26,7 +26,7 @@ function getCoordinates(array) {
     var y = 0;
     var coordinates = [];
     for (i = 0; i < array.length; i++) {
-        switch(array[i]) {
+        switch (array[i]) {
             case "^": // ^
                 y += 1;
                 break;
@@ -40,30 +40,32 @@ function getCoordinates(array) {
                 y -= 1;
                 break;
         }
-    coordinates.push([x, y]);
+        coordinates.push([x, y]);
     }
     return coordinates;
 }
 
 function getCounts(coordinates) {
     var counts = {};
-    for(var i = 0; i< coordinates.length; i++) {
+    for (var i = 0; i < coordinates.length; i++) {
         var num = coordinates[i];
-        counts[num] = (counts[num] || 0) + 1  
+        counts[num] = (counts[num] || 0) + 1;
         // counts[num] = counts[num] ? counts[num]+1 : 1;
     }
     return counts;
 }
 
-function numberOfHouses(array){
+function numberOfHouses(array) {
     var houses = getCounts(getCoordinates(array));
-    var occ = Object.keys(houses).map(function (key) {return houses[key]});
+    var occ = Object.keys(houses).map(function (key) {
+        return houses[key];
+    });
     return occ.length + 1;
 }
 
 console.log(numberOfHouses(data));
 
-`Day 3 - Part 1 - Without functions ---------------------------------------------------------------------`
+`Day 3 - Part 1 - Without functions ---------------------------------------------------------------------`;
 
 //var input = document.getElementById("text").innerHTML;
 var input = document.body.textContent;
@@ -71,12 +73,12 @@ var input = document.body.textContent;
 var data = input.split("");
 
 var x = 0;
-var y = 0; 
+var y = 0;
 
 var houses = [];
 
 for (i = 0; i < data.length; i++) {
-    switch(data[i]) {
+    switch (data[i]) {
         case "^": // ^
             y += 1;
             break;
@@ -95,15 +97,17 @@ for (i = 0; i < data.length; i++) {
 
 var counts = {};
 
-for(var i = 0; i< houses.length; i++) {
+for (var i = 0; i < houses.length; i++) {
     var num = houses[i];
-    counts[num] = (counts[num] || 0) + 1  
+    counts[num] = (counts[num] || 0) + 1;
     // counts[num] = counts[num] ? counts[num]+1 : 1;
 }
 
 console.log(counts);
 
-var occ = Object.keys(counts).map(function (key) {return counts[key]});
+var occ = Object.keys(counts).map(function (key) {
+    return counts[key];
+});
 
 console.log(occ.length + 1); // +1 is the starting house 0,0
 
@@ -120,15 +124,15 @@ For example:
 ^v delivers presents to 3 houses, because Santa goes north, and then Robo-Santa goes south.
 ^>v< now delivers presents to 3 houses, and Santa and Robo-Santa end up back where they started.
 ^v^v^v^v^v now delivers presents to 11 houses, with Santa going one direction and Robo-Santa going the other.
-Your puzzle answer was 2341.`
+Your puzzle answer was 2341.`;
 
 //var input = document.getElementById("text").innerHTML;
 var input = document.body.textContent;
 
 var data = input.split("");
 
-var santa = []; 
-    
+var santa = [];
+
 for (i = 0; i < data.length; i += 2) {
     santa.push(data[i]);
 }
@@ -144,7 +148,7 @@ function getCoordinates(array) {
     var y = 0;
     var coordinates = [];
     for (i = 0; i < array.length; i++) {
-        switch(array[i]) {
+        switch (array[i]) {
             case "^": // ^
                 y += 1;
                 break;
@@ -158,7 +162,7 @@ function getCoordinates(array) {
                 y -= 1;
                 break;
         }
-    coordinates.push([x, y]);
+        coordinates.push([x, y]);
     }
     return coordinates;
 }
@@ -167,9 +171,9 @@ var both = getCoordinates(santa).concat(getCoordinates(robo)); // The coordinate
 
 function getCounts(coordinates) {
     var counts = {};
-    for(var i = 0; i< coordinates.length; i++) {
+    for (var i = 0; i < coordinates.length; i++) {
         var num = coordinates[i];
-        counts[num] = (counts[num] || 0) + 1  
+        counts[num] = (counts[num] || 0) + 1;
         // counts[num] = counts[num] ? counts[num]+1 : 1;
     }
     return counts;
@@ -177,16 +181,20 @@ function getCounts(coordinates) {
 
 console.log(getCounts(both));
 
-function numberOfHouses(array){
+function numberOfHouses(array) {
     var houses = getCounts(getCoordinates(array));
-    var occ = Object.keys(houses).map(function (key) {return houses[key]});
-    return occ.length + 1; // +1 is the starting house 0,0 
+    var occ = Object.keys(houses).map(function (key) {
+        return houses[key];
+    });
+    return occ.length + 1; // +1 is the starting house 0,0
 }
 
-function numberOfHousesBoth(array){
+function numberOfHousesBoth(array) {
     var houses = getCounts(array);
-    var occ = Object.keys(houses).map(function (key) {return houses[key]});
-    return occ.length + 1; // +1 is the starting house 0,0 
+    var occ = Object.keys(houses).map(function (key) {
+        return houses[key];
+    });
+    return occ.length + 1; // +1 is the starting house 0,0
 }
 
 console.log(numberOfHousesBoth(both) - 1); //-1 because they start from the same place i.e. two 0,0 coordinates.
@@ -196,9 +204,4 @@ console.log(numberOfHousesBoth(both) - 1); //-1 because they start from the same
 console.log("Santa: " + numberOfHouses(santa));
 console.log("Robo: " + numberOfHouses(robo));
 var total = numberOfHouses(santa) + numberOfHouses(robo); 
-console.log("Total: " + total);`
-
-
-
-
-
+console.log("Total: " + total);`;
