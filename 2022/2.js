@@ -1,6 +1,6 @@
 // first: 23 min
 // second: 26 min
-// total: 49
+// total: 49 min
 
 let fs = require("fs");
 
